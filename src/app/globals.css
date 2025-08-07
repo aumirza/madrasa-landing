@@ -43,7 +43,8 @@
   --font-bricolage-grotesque: "Bricolage Grotesque", sans-serif;
   --font-manrope: "Manrope", sans-serif;
 
-  --color-heading: var(--heading--main);
+  --color-heading: var(--heading);
+  --color-subheading: var(--subheading);
 }
 
 :root {
@@ -63,7 +64,7 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
+  --border: oklch(0.9702 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -80,7 +81,8 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --heading--main: oklch(0.145 0 0);
+  --heading: oklch(0.145 0 0);
+  --subheading: oklch(0.5555 0 0);
 }
 
 .dark {

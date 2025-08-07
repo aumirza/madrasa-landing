@@ -29,14 +29,14 @@ export function HowItWorksSection() {
         {/* Top:  Title and description */}
         <div className="space-y-1">
           <p className="font-bold text-2xl text-[#292108]">How it works</p>
-          <p className="font-manrope font-medium text-muted-foreground">
+          <p className="font-manrope font-medium text-subheading">
             We've built a simpler, faster way to match you with the right Ustaad
             — all streamlined to save you time and effort.
           </p>
         </div>
         {/* Bottom:  Button with caption */}
         <div className="flex flex-col items-center space-y-3">
-          <p className="font-manrope font-semibold text-muted-foreground text-sm uppercase">
+          <p className="font-manrope font-semibold text-sm text-subheading uppercase">
             Struggling to find a perfect tutor.
           </p>
           <Button className="w-full bg-gradient-cta">
@@ -54,7 +54,7 @@ export function HowItWorksSection() {
             {/* Text content */}
             <div className="flex flex-col gap-1">
               <p className="font-semibold text-heading">{item.title}</p>
-              <p className="font-manrope text-muted-foreground text-sm">
+              <p className="font-manrope text-sm text-subheading">
                 {item.description}
               </p>
             </div>
