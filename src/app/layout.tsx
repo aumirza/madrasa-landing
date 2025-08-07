@@ -1,5 +1,19 @@
 import type { Metadata } from 'next';
+
 import './globals.css';
+import { Bricolage_Grotesque, Manrope } from 'next/font/google';
+
+const bricolageGrotesque = Bricolage_Grotesque({
+  subsets: ['latin'],
+  variable: '--font-bricolage-grotesque',
+  display: 'swap',
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Madrasa',
@@ -13,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${bricolageGrotesque.variable} ${manrope.variable}`}>{children}</body>
     </html>
   );
 }
