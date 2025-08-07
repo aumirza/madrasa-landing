@@ -55,7 +55,7 @@ export function AudienceTabs() {
           ))}
         </TabsList>
         <TabsContent value={activeTab}>
-          <div className="flex max-w-full flex-col md:max-w-5xl xl:max-w-[1440px]">
+          <div className="flex max-w-5xl flex-col xl:max-w-[1440px]">
             {/* Banner section */}
             <div
               className={cn(
