@@ -39,7 +39,10 @@ export function HowItWorksSection() {
           <p className="font-manrope font-semibold text-sm text-subheading uppercase">
             Struggling to find a perfect tutor.
           </p>
-          <Button className="w-full bg-gradient-cta">
+          <Button
+            className="w-full rounded-lg bg-gradient-cta font-bold"
+            size="lg"
+          >
             Start With 2 Free Demo
           </Button>
         </div>
