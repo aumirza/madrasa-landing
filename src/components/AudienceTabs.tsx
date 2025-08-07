@@ -55,7 +55,7 @@ export function AudienceTabs() {
           ))}
         </TabsList>
         <TabsContent value={activeTab}>
-          <div className="flex w-5xl flex-col">
+          <div className="flex max-w-full flex-col md:max-w-5xl xl:max-w-[1440px]">
             {/* Banner section */}
             <div
               className={cn(
@@ -86,7 +86,7 @@ export function AudienceTabs() {
                 <p className="font-bold font-manrope">
                   {TAB_LIST['parents'].description}
                 </p>
-                <ArrowRightIcon size={28} />
+                <ArrowRightIcon size={20} weight="bold" />
               </div>
             </div>
 
