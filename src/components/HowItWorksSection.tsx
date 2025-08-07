@@ -52,7 +52,7 @@ export function HowItWorksSection() {
         <div className="flex h-full flex-col gap-5 md:hidden">{steps}</div>
         {/* Bottom:  Button with caption */}
         <div className="flex flex-col items-center space-y-3">
-          <p className="font-manrope font-semibold text-subheading text-xs uppercase">
+          <p className="font-manrope font-semibold text-subheading text-xs uppercase tracking-[.08em]">
             Struggling to find a perfect tutor.
           </p>
           <Button
