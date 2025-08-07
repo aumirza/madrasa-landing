@@ -55,7 +55,7 @@ export function AudienceTabs() {
           ))}
         </TabsList>
         <TabsContent value={activeTab}>
-          <div className="flex max-w-5xl flex-col xl:max-w-[1440px]">
+          <div className="flex max-w-5xl flex-col 2xl:max-w-[1440px]">
             {/* Banner section */}
             <div
               className={cn(
@@ -63,30 +63,30 @@ export function AudienceTabs() {
                 TAB_LIST['parents'].className
               )}
             >
-              <h3 className="px-10 py-6 font-bold text-3xl ">
+              <h3 className="px-5 pt-6 pb-2.5 font-bold text-3xl sm:px-10 sm:py-6 ">
                 {TAB_LIST['parents'].title}
               </h3>
 
               {/* Bg grid and foreground image */}
-              <div className="relative h-[10.625rem]">
+              <div className="relative h-50 sm:h-[10.625rem] ">
                 <Image
                   alt="Background Grid"
-                  className="w-full"
+                  className="h-full w-full object-cover"
                   src={bgGridImage}
                 />
                 <Image
                   alt="Audience Image"
-                  className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 max-h-[110%] w-fit object-center"
+                  className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 h-40 object-cover sm:h-[110%] sm:w-fit sm:object-center"
                   src={TAB_LIST['parents'].image}
                 />
               </div>
 
               {/*  */}
-              <div className="flex items-center justify-between px-10 py-6">
+              <div className="flex justify-between px-5.5 py-4 sm:items-center sm:px-10 sm:py-6">
                 <p className="font-bold font-manrope">
                   {TAB_LIST['parents'].description}
                 </p>
-                <ArrowRightIcon size={20} weight="bold" />
+                <ArrowRightIcon className="size-10 sm:size-6" weight="bold" />
               </div>
             </div>
 
