@@ -1,5 +1,7 @@
-import { ArrowUpRightIcon } from '@phosphor-icons/react/ssr';
+'use client';
+import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
+import { useState } from 'react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -42,52 +44,79 @@ export const NAV_ITEMS = [
       },
     ],
   },
-  { label: 'Compare', items: [] },
+  // { label: 'Compare', items: [] },
   { label: 'Blog', href: '/blog' },
 ];
 
 export function Nav() {
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+
   return (
-    <NavigationMenu className="hidden lg:flex" viewport={false}>
-      <NavigationMenuList className="text-heading">
-        {NAV_ITEMS.map((item) =>
-          item.items ? (
-            <NavigationMenuItem key={item.label}>
-              <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
-              <NavigationMenuContent className="z-[9999] p-0!">
-                <ul className="flex w-fit flex-col gap-2 py-4">
-                  {item.items.map((subItem) => (
-                    <li
-                      className="group/subitem px-5 py-2.5 hover:bg-brand"
-                      key={subItem.label}
-                    >
-                      <NavigationMenuLink asChild>
-                        <Link className="flex-row gap-3" href={subItem.href}>
-                          <div>
-                            <h4 className="font-medium group-hover/subitem:text-primary">
-                              {subItem.label}
-                            </h4>
-                            <p className="text-nowrap font-medium text-sm text-subheading ">
-                              {subItem.description}
-                            </p>
-                          </div>
-                          <ArrowUpRightIcon className="size-4 text-heading group-hover/subitem:text-primary" />
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          ) : (
-            <NavigationMenuItem key={item.href}>
-              <NavigationMenuLink asChild>
-                <Link href={item.href}>{item.label}</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          )
-        )}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <>
+      {/* Overlay for when submenu is open */}
+      {isSubmenuOpen && (
+        <div
+          aria-label="Close navigation menu"
+          className="fixed top-18 left-0 z-[9998] h-[calc(100vh-4.5rem)] w-full bg-black/40 transition-opacity duration-200"
+          onClick={() => setIsSubmenuOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setIsSubmenuOpen(false);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+        />
+      )}
+
+      <NavigationMenu
+        className="hidden lg:flex"
+        onValueChange={(value) => {
+          // Value will be empty string when closed, or the trigger value when open
+          setIsSubmenuOpen(Boolean(value));
+        }}
+        viewport={false}
+      >
+        <NavigationMenuList className="text-heading">
+          {NAV_ITEMS.map((item) =>
+            item.items ? (
+              <NavigationMenuItem key={item.label}>
+                <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-[9999] p-0!">
+                  <ul className="flex w-fit flex-col gap-2 py-4">
+                    {item.items.map((subItem) => (
+                      <li
+                        className="group/subitem px-5 py-2.5 hover:bg-brand"
+                        key={subItem.label}
+                      >
+                        <NavigationMenuLink asChild>
+                          <Link className="flex-row gap-3" href={subItem.href}>
+                            <div>
+                              <h4 className="font-medium group-hover/subitem:text-primary">
+                                {subItem.label}
+                              </h4>
+                              <p className="text-nowrap font-medium text-sm text-subheading ">
+                                {subItem.description}
+                              </p>
+                            </div>
+                            <ArrowUpRightIcon className="size-4 text-heading group-hover/subitem:text-primary" />
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            ) : (
+              <NavigationMenuItem key={item.href}>
+                <NavigationMenuLink asChild>
+                  <Link href={item.href}>{item.label}</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            )
+          )}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </>
   );
 }
