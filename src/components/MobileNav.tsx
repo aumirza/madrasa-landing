@@ -108,22 +108,23 @@ export function MobileNav() {
         >
           <nav
             aria-label="Mobile navigation"
-            className="relative flex flex-1 flex-col overflow-hidden"
+            className="relative flex flex-1 flex-col overflow-hidden bg-white"
             id={labelId}
           >
-            <AnimatePresence mode="wait">
+            <AnimatePresence initial={false}>
               {currentSubmenu ? (
                 // Submenu view
                 <motion.div
                   animate={{ x: 0 }}
-                  className="absolute inset-0"
+                  className="absolute inset-0 bg-white"
                   exit={{ x: '100%' }}
                   initial={{ x: '100%' }}
                   key={`submenu-${currentSubmenu}`}
                   transition={{
-                    type: 'tween',
-                    ease: 'easeInOut',
-                    duration: 0.3,
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 40,
+                    mass: 1,
                   }}
                 >
                   <div className="px-7.5 py-4 ">
@@ -159,14 +160,15 @@ export function MobileNav() {
                 // Main menu view
                 <motion.div
                   animate={{ x: 0 }}
-                  className="absolute inset-0"
+                  className="absolute inset-0 bg-white"
                   exit={{ x: '-100%' }}
                   initial={{ x: '-100%' }}
                   key="main-menu"
                   transition={{
-                    type: 'tween',
-                    ease: 'easeInOut',
-                    duration: 0.3,
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 40,
+                    mass: 1,
                   }}
                 >
                   {[
