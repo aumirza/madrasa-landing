@@ -6,6 +6,7 @@ import {
   ListIcon,
   XIcon,
 } from '@phosphor-icons/react/ssr';
+import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 // import { cn } from '@/lib/utils'; // Removed unused import
@@ -107,73 +108,101 @@ export function MobileNav() {
         >
           <nav
             aria-label="Mobile navigation"
-            className="flex flex-col "
+            className="relative flex flex-1 flex-col overflow-hidden"
             id={labelId}
           >
-            {currentSubmenu ? (
-              // Submenu view
-              <>
-                <div className="px-7.5 py-4 ">
-                  <Button
-                    className={
-                      'group/cta w-fit gap-0.5 rounded-full bg-brand px-2.5 py-2 text-lg text-primary transition-all duration-200 hover:text-white'
-                    }
-                    onClick={hideSubmenu}
-                    // size="sm"
-                    type="button"
-                  >
-                    <ArrowLeftIcon className="size-5" weight="bold" />
-                    <span className="font-semibold text-lg">
-                      {currentSubmenu}
-                    </span>
-                  </Button>
-                </div>
-                {NAV_ITEMS.find(
-                  (item) => item.label === currentSubmenu
-                )?.items?.map((subItem) => (
-                  <Link
-                    className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
-                    href={subItem.href}
-                    key={subItem.label}
-                    onClick={close}
-                  >
-                    {subItem.label}
-                    <CaretRightIcon className="size-4" />
-                  </Link>
-                ))}
-              </>
-            ) : (
-              // Main menu view
-              [
-                ...NAV_ITEMS,
-                {
-                  label: 'Explore Madrasa App',
-                  href: '#',
-                },
-              ].map((item) => (
-                <div className="flex flex-col" key={item.label}>
-                  {'items' in item && item.items && item.items.length > 0 ? (
-                    <button
-                      className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
-                      onClick={() => showSubmenu(item.label)}
+            <AnimatePresence mode="wait">
+              {currentSubmenu ? (
+                // Submenu view
+                <motion.div
+                  animate={{ x: 0 }}
+                  className="absolute inset-0"
+                  exit={{ x: '100%' }}
+                  initial={{ x: '100%' }}
+                  key={`submenu-${currentSubmenu}`}
+                  transition={{
+                    type: 'tween',
+                    ease: 'easeInOut',
+                    duration: 0.3,
+                  }}
+                >
+                  <div className="px-7.5 py-4 ">
+                    <Button
+                      className={
+                        'group/cta w-fit gap-0.5 rounded-full bg-brand px-2.5 py-2 text-lg text-primary transition-all duration-200 hover:text-white'
+                      }
+                      onClick={hideSubmenu}
+                      // size="sm"
                       type="button"
                     >
-                      <span>{item.label}</span>
-                      <CaretRightIcon className="size-4" />
-                    </button>
-                  ) : (
+                      <ArrowLeftIcon className="size-5" weight="bold" />
+                      <span className="font-semibold text-lg">
+                        {currentSubmenu}
+                      </span>
+                    </Button>
+                  </div>
+                  {NAV_ITEMS.find(
+                    (item) => item.label === currentSubmenu
+                  )?.items?.map((subItem) => (
                     <Link
                       className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
-                      href={item.href ?? '#'}
+                      href={subItem.href}
+                      key={subItem.label}
                       onClick={close}
                     >
-                      {item.label}
+                      {subItem.label}
                       <CaretRightIcon className="size-4" />
                     </Link>
-                  )}
-                </div>
-              ))
-            )}
+                  ))}
+                </motion.div>
+              ) : (
+                // Main menu view
+                <motion.div
+                  animate={{ x: 0 }}
+                  className="absolute inset-0"
+                  exit={{ x: '-100%' }}
+                  initial={{ x: '-100%' }}
+                  key="main-menu"
+                  transition={{
+                    type: 'tween',
+                    ease: 'easeInOut',
+                    duration: 0.3,
+                  }}
+                >
+                  {[
+                    ...NAV_ITEMS,
+                    {
+                      label: 'Explore Madrasa App',
+                      href: '#',
+                    },
+                  ].map((item) => (
+                    <div className="flex flex-col" key={item.label}>
+                      {'items' in item &&
+                      item.items &&
+                      item.items.length > 0 ? (
+                        <button
+                          className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
+                          onClick={() => showSubmenu(item.label)}
+                          type="button"
+                        >
+                          <span>{item.label}</span>
+                          <CaretRightIcon className="size-4" />
+                        </button>
+                      ) : (
+                        <Link
+                          className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
+                          href={item.href ?? '#'}
+                          onClick={close}
+                        >
+                          {item.label}
+                          <CaretRightIcon className="size-4" />
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </nav>
           <div className="flex flex-col gap-3 pt-4">
             <CTAButtons fullWidth />
