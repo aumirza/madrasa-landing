@@ -13,6 +13,7 @@
     "@phosphor-icons/react": "^2.1.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "motion": "^12.23.12",
     "next": "15.4.5",
     "radix-ui": "latest",
     "react": "19.1.0",
