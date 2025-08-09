@@ -3,10 +3,7 @@
 import { ArrowRightIcon } from '@phosphor-icons/react';
 import Image from 'next/image';
 import { useState } from 'react';
-
-import bgGridImage from '@/assets/images/bg-grid.png';
-import parentsImage from '@/assets/images/parents.png';
-
+import bgGridImage from '@/assets/images/bg-grid.svg';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import { HowItWorksSection } from './HowItWorksSection';
