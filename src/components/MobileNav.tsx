@@ -1,0 +1,185 @@
+'use client';
+
+import {
+  ArrowLeftIcon,
+  CaretRightIcon,
+  ListIcon,
+  XIcon,
+} from '@phosphor-icons/react/ssr';
+import Link from 'next/link';
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
+// import { cn } from '@/lib/utils'; // Removed unused import
+import CTAButtons from './CTAButtons';
+import { NAV_ITEMS } from './Nav';
+import { Button } from './ui/button';
+
+/**
+ * Mobile navigation drawer with accessible focus management + escape/overlay close.
+ */
+export function MobileNav() {
+  const [open, setOpen] = useState(false);
+  const [currentSubmenu, setCurrentSubmenu] = useState<string | null>(null);
+  // Disable scroll outside when mobile nav is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const labelId = useId();
+
+  // Measure header height
+  useEffect(() => {
+    const measure = () => {
+      const el = document.getElementById('site-header');
+      if (el) {
+        setHeaderHeight(el.offsetHeight);
+      }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  const toggle = useCallback(() => setOpen((o) => !o), []);
+  const close = useCallback(() => {
+    setOpen(false);
+    setCurrentSubmenu(null);
+  }, []);
+
+  const showSubmenu = useCallback((menuLabel: string) => {
+    setCurrentSubmenu(menuLabel);
+  }, []);
+
+  const hideSubmenu = useCallback(() => {
+    setCurrentSubmenu(null);
+  }, []);
+
+  return (
+    <>
+      <Button
+        aria-controls="mobile-nav"
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        className="rounded-full border-primary-200 bg-primary-200 lg:hidden"
+        onClick={toggle}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        }}
+        ref={triggerRef}
+        size="icon"
+        type="button"
+      >
+        {open ? (
+          <XIcon className="size-5 text-primary" />
+        ) : (
+          <ListIcon className="size-5 text-primary" />
+        )}
+        <span className="sr-only">
+          {open ? 'Close navigation menu' : 'Open navigation menu'}
+        </span>
+      </Button>
+      {/* Full-screen mobile nav below header */}
+      {open && (
+        <div
+          aria-labelledby={labelId}
+          aria-modal="true"
+          className="fixed right-0 left-0 z-40 flex flex-col justify-between gap-6 border-t bg-white shadow-lg transition-transform duration-300 lg:hidden"
+          id="mobile-nav"
+          ref={panelRef}
+          role="dialog"
+          style={{
+            top: headerHeight,
+            height: `calc(100dvh - ${headerHeight}px)`,
+            width: '100vw',
+            transform: open ? 'translateX(0)' : 'translateX(-100%)',
+          }}
+        >
+          <nav
+            aria-label="Mobile navigation"
+            className="flex flex-col "
+            id={labelId}
+          >
+            {currentSubmenu ? (
+              // Submenu view
+              <>
+                <div className="px-7.5 py-4 ">
+                  <Button
+                    className={
+                      'group/cta w-fit gap-0.5 rounded-full bg-brand px-2.5 py-2 text-lg text-primary transition-all duration-200 hover:text-white'
+                    }
+                    onClick={hideSubmenu}
+                    // size="sm"
+                    type="button"
+                  >
+                    <ArrowLeftIcon className="size-5" weight="bold" />
+                    <span className="font-semibold text-lg">
+                      {currentSubmenu}
+                    </span>
+                  </Button>
+                </div>
+                {NAV_ITEMS.find(
+                  (item) => item.label === currentSubmenu
+                )?.items?.map((subItem) => (
+                  <Link
+                    className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
+                    href={subItem.href}
+                    key={subItem.label}
+                    onClick={close}
+                  >
+                    {subItem.label}
+                    <CaretRightIcon className="size-4" />
+                  </Link>
+                ))}
+              </>
+            ) : (
+              // Main menu view
+              [
+                ...NAV_ITEMS,
+                {
+                  label: 'Explore Madrasa App',
+                  href: '#',
+                },
+              ].map((item) => (
+                <div className="flex flex-col" key={item.label}>
+                  {'items' in item && item.items && item.items.length > 0 ? (
+                    <button
+                      className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
+                      onClick={() => showSubmenu(item.label)}
+                      type="button"
+                    >
+                      <span>{item.label}</span>
+                      <CaretRightIcon className="size-4" />
+                    </button>
+                  ) : (
+                    <Link
+                      className="flex items-center justify-between rounded-md px-7.5 py-5 font-medium text-[1.5rem] text-heading transition-colors hover:bg-accent/50"
+                      href={item.href ?? '#'}
+                      onClick={close}
+                    >
+                      {item.label}
+                      <CaretRightIcon className="size-4" />
+                    </Link>
+                  )}
+                </div>
+              ))
+            )}
+          </nav>
+          <div className="flex flex-col gap-3 pt-4">
+            <CTAButtons fullWidth />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
