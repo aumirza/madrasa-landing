@@ -45,6 +45,42 @@
 
   --color-heading: var(--heading);
   --color-subheading: var(--subheading);
+  --color-brand: #f9f6ff;
+
+  /* /_ Product Colors _/ */
+  --color-accent-yellow-100: #fefaec;
+  --color-accent-yellow-200: #fcefc7;
+  --color-accent-yellow-300: #f9df90;
+  --color-accent-yellow-400: #f7d46b;
+  --color-accent-yellow-50: #fffdf6;
+  --color-accent-yellow-500: #f5c946;
+  --color-accent-yellow-600: #c8a438;
+  --color-accent-yellow-700: #9a7e2a;
+  --color-accent-yellow-800: #6d591d;
+  --color-accent-yellow-900: #564616;
+  --color-accent-yellow-950: #292108;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-50: #fafafa;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+  --color-primary-50: #f9f6ff;
+  --color-primary-100: #f0eafb;
+  --color-primary-200: #e2d5f6;
+  --color-primary-300: #c5abed;
+  --color-primary-400: #a781e5;
+  --color-primary-500: #8a57dc;
+  --color-primary-600: #6d2dd3;
+  --color-primary-700: #411b7f;
+  --color-primary-800: #2c1254;
+  --color-primary-900: #16092a;
+  --color-primary-950: #0b0515;
 }
 
 :root {
