@@ -17,7 +17,10 @@ export default function CTAButtons({ fullWidth = false }) {
         Join As an Ustaad
       </Button>
       <Button
-        className={cn(fullWidth ? 'w-full rounded-none' : 'rounded-full')}
+        className={cn(
+          'bg-gradient-cta',
+          fullWidth ? 'w-full rounded-none' : 'rounded-full'
+        )}
         size={fullWidth ? 'lg' : 'sm'}
         type="button"
       >
