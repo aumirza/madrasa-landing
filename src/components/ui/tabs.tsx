@@ -41,7 +41,7 @@ function TabsTrigger({
   return (
     <TabsPrimitive.Trigger
       className={cn(
-        "inline-flex h-full w-fit flex-1 items-center justify-center gap-1.5 whitespace-nowrap border-border border-l px-6 py-3 font-medium text-sm text-subheading transition-[color,box-shadow] last:border-r focus-visible:border-ring focus-visible:outline-1 focus-visible:outline-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-b-3 data-[state=active]:border-b-primary data-[state=active]:bg-primary/10 data-[state=active]:font-semibold data-[state=active]:text-primary sm:w-[8.75rem] dark:text-muted-foreground dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 dark:data-[state=active]:text-foreground [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+        "inline-flex h-full w-fit flex-1 items-center justify-center gap-1.5 whitespace-nowrap border-border border-l px-6 py-3 font-medium text-sm text-subheading transition-[color,box-shadow] last:border-r hover:text-primary focus-visible:border-ring focus-visible:outline-1 focus-visible:outline-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-b-3 data-[state=active]:border-b-primary data-[state=active]:bg-primary/10 data-[state=active]:font-semibold data-[state=active]:text-primary sm:w-[8.75rem] dark:text-muted-foreground dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 dark:data-[state=active]:text-foreground [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
         className
       )}
       data-slot="tabs-trigger"
