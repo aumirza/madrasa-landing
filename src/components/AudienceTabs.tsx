@@ -7,7 +7,7 @@ import kidsImage from '@/assets/images/kids.webp';
 import parentsImage from '@/assets/images/parents.webp';
 import professionalsImage from '@/assets/images/professionals.webp';
 import studentsImage from '@/assets/images/students.webp';
-import tutorsImage from '@/assets/images/women.webp';
+import womenImage from '@/assets/images/women.webp';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import { HowItWorksSection } from './HowItWorksSection';
@@ -45,9 +45,9 @@ const TAB_LIST = {
     filter:
       'invert-[.21] sepia-[.78] saturate-[4.02] hue-rotate-[109deg] brightness-[.93] contrast-[.85]',
   },
-  tutors: {
-    title: 'Tutors',
-    image: tutorsImage,
+  women: {
+    title: 'Women Only',
+    image: womenImage,
     description: 'Teach Islam. Earn ethically. Empower the Ummah.',
     className: 'text-primary-700 bg-primary-50',
     filter:
