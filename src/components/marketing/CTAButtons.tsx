@@ -7,7 +7,7 @@ export default function CTAButtons({ fullWidth = false }) {
       <Button
         className={cn(
           fullWidth
-            ? 'w-full rounded-none bg-brand text-primary'
+            ? 'h-16 w-full rounded-none bg-brand font-semibold text-lg text-primary'
             : 'hidden rounded-full md:flex'
         )}
         size={fullWidth ? 'lg' : 'sm'}
@@ -19,7 +19,9 @@ export default function CTAButtons({ fullWidth = false }) {
       <Button
         className={cn(
           'bg-gradient-cta',
-          fullWidth ? 'w-full rounded-none' : 'rounded-full'
+          fullWidth
+            ? 'h-16 w-full rounded-none font-bold text-lg'
+            : 'rounded-full'
         )}
         size={fullWidth ? 'lg' : 'sm'}
         type="button"
