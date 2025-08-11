@@ -9,7 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from './ui/navigation-menu';
+} from '../ui/navigation-menu';
 
 export const NAV_ITEMS = [
   { label: 'Tutors (Ustaad)', href: '/tutors' },

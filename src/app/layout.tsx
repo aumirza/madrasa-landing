@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import { Bricolage_Grotesque, Manrope } from 'next/font/google';
-import { Header } from '@/components/Header';
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -29,7 +28,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bricolageGrotesque.variable} ${manrope.variable}`}>
-        <Header />
         <main>{children}</main>
       </body>
     </html>

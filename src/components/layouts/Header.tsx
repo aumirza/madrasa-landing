@@ -1,10 +1,10 @@
 import { CaretRightIcon } from '@phosphor-icons/react/ssr';
 import Link from 'next/link';
-import CTAButtons from './CTAButtons';
+import CTAButtons from '../CTAButtons';
+import { Button } from '../ui/button';
 import Logo from './Logo';
 import { MobileNav } from './MobileNav';
 import { Nav } from './Nav';
-import { Button } from './ui/button';
 
 export function Header() {
   return (
