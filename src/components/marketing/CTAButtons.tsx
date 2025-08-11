@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 
-export default function CTAButtons({ fullWidth = false }) {
+export function CTAButtons({ fullWidth = false }) {
   return (
     <div className={`flex ${fullWidth ? 'w-full flex-col' : 'gap-5'}`}>
       <Button

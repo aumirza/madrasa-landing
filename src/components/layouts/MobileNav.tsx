@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 // import { cn } from '@/lib/utils'; // Removed unused import
-import CTAButtons from '../CTAButtons';
+import { CTAButtons } from '../marketing/CTAButtons';
 import { Button } from '../ui/button';
 import { NAV_ITEMS } from './Nav';
 

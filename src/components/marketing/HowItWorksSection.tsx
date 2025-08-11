@@ -1,4 +1,4 @@
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 
 const HOW_IT_WORKS_STEPS = [
   {
