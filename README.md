@@ -1,161 +1,196 @@
-# Madrasa Landing Page
+# Madrasa
 
-A modern, responsive landing page for Madrasa educational platform built with Next.js 15 and designed for multiple audiences including parents, kids, students, and professionals.
+Modern, responsive landing page for the Madrasa educational platform. Built with Next.js (App Router), TypeScript, Tailwind CSS, and an accessible component system (shadcn/ui + Radix) to serve multiple audiences (parents, kids, students, professionals, women, learners, etc.).
+
+---
 
 ## 🚀 Tech Stack
 
-### Core Framework
+### Core
 
-- **[Next.js 15.4.5](https://nextjs.org/)** - React framework with App Router
-- **[React 19.1.0](https://react.dev/)** - Latest React with concurrent features
-- **[TypeScript 5](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **Next.js 15.4.5** – App Router, Server Components
+- **React 19.1.0** – Concurrent features & modern APIs
+- **TypeScript 5** – End‑to‑end type safety
 
 ### Styling & UI
 
-- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[shadcn/ui](https://ui.shadcn.com/)** - High-quality React components
-- **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible UI primitives
-- **[Class Variance Authority](https://github.com/joe-bell/cva)** - Component variant management
-- **[clsx](https://github.com/lukeed/clsx)** & **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Conditional CSS classes
+- **Tailwind CSS 4** – Utility-first styling
+- **shadcn/ui + Radix UI** – Accessible, composable primitives
+- **Class Variance Authority** – Variant management
+- **clsx + tailwind-merge** – Safe class composition
 
-### Icons & Assets
+### Productivity & Quality
 
-- **[Phosphor Icons](https://phosphoricons.com/)** - Modern icon family
-- **[Next.js Image](https://nextjs.org/docs/app/api-reference/components/image)** - Optimized image component
+- **Biome** – Formatter & linter
+- **lint-staged** – Pre-commit enforcement
+- **Turbopack** – Fast dev bundling
 
-### Code Quality & Formatting
+### Assets & DX
 
-- **[Biome](https://biomejs.dev/)** - Fast formatter and linter
-- **[Ultracite](https://github.com/your-org/ultracite)** - Zero-config code quality enforcement
-- **[lint-staged](https://github.com/okonet/lint-staged)** - Pre-commit formatting
+- **Phosphor Icons** – Icon set
+- **Next/Image** – Image optimization
 
-### Performance Features
-
-- **[Turbopack](https://turbo.build/pack)** - Fast Rust-based bundler for development
-- **Next.js App Router** - Latest routing with server components
-- **Optimized Images** - Automatic image optimization and lazy loading
+---
 
 ## 🏗️ Project Structure
 
 ```
 madrasa-landing/
-├── public/                  # Static assets
+├── public/                  # Static assets (SVGs, images)
 ├── src/
-│   ├── app/                 # Next.js App Router
-│   │   ├── favicon.ico
+│   ├── app/                 # App Router entry + route segments
+│   │   ├── (main)/          # Primary marketing route group
+│   │   ├── auth/            # Auth-related
 │   │   ├── globals.css      # Global styles
 │   │   ├── layout.tsx       # Root layout
-│   │   └── page.tsx         # Home page
-│   ├── assets/              # Project assets
+│   │   └── favicon.ico
+│   ├── assets/              # Additional images/media
 │   │   └── images/
-
-│   ├── components/          # React components
+│   ├── components/          # Feature + shared components
 │   │   ├── Header.tsx
 │   │   ├── Logo.tsx
 │   │   ├── MobileNav.tsx
 │   │   ├── Nav.tsx
-│   │   ├── (.......)
-│   │   └── ui/              # shadcn/ui components
-│   │       ├── button.tsx
-│   │       ├── navigation-menu.tsx
-│   │       └── tabs.tsx
-│   └── lib/
-│       └── utils.ts         # Utility functions
-├── biome.jsonc              # Biome configuration
-├── components.json          # shadcn/ui configuration
+│   │   └── ui/              # Generated shadcn/ui primitives
+│   ├── hooks/               # Reusable hooks
+│   │   └── use-mobile.ts
+│   └── lib/                 # Utilities
+│       └── utils.ts
+├── biome.jsonc              # Biome config
+├── components.json          # shadcn/ui config
 ├── next.config.ts           # Next.js configuration
 ├── package.json
-├── postcss.config.mjs       # PostCSS configuration
-├── tailwind.config.js       # Tailwind CSS configuration
-└── tsconfig.json           # TypeScript configuration
+├── pnpm-lock.yaml
+├── postcss.config.mjs       # PostCSS pipeline
+├── tokens.md                # Design tokens / notes
+└── tsconfig.json            # TypeScript config
 ```
+
+> Note: No explicit Tailwind config file is present; defaults (v4) + global styles drive design. Add one if customization grows.
+
+---
+
+## 🎨 Features
+
+- Multi‑audience landing experience
+- Accessible UI (keyboard & screen reader friendly)
+- Responsive, mobile‑first layout
+- Optimized images & modern build pipeline
+- Strong typing & utilities
+- Consistent styling via design tokens & utility classes
+
+---
 
 ## 🛠️ Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
-- pnpm (recommended) or npm
+- **pnpm** (preferred) – https://pnpm.io
 
-### Installation
-
-1. Clone the repository:
+### Install & Run
 
 ```bash
 git clone https://github.com/aumirza/madrasa-landing.git
 cd madrasa-landing
-```
-
-2. Install dependencies:
-
-```bash
 pnpm install
-```
-
-3. Run the development server:
-
-```bash
 pnpm dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Visit http://localhost:3000
 
-## 📝 Available Scripts
+### Available Scripts
 
-- `pnpm dev` - Start development server with Turbopack
-- `pnpm build` - Build the application for production
-- `pnpm start` - Start the production server
-- `pnpm lint` - Check code quality with Biome
-- `pnpm lint:fix` - Fix code quality issues automatically
+- `pnpm dev` – Start dev server (Turbopack)
+- `pnpm build` – Production build
+- `pnpm start` – Run built app
+- `pnpm lint` – Lint & format check (Biome)
+- `pnpm lint:fix` – Auto-fix issues
 
-## 🎨 Features
+---
 
-- **Multi-Audience Design** - Tailored content for parents, kids, students, and professionals
-- **Responsive Layout** - Mobile-first design that works on all devices
-- **Performance Optimized** - Built with Next.js 15 and Turbopack for fast development
-- **Type Safe** - Full TypeScript support for better developer experience
-- **Accessibility** - Built with Radix UI primitives for screen reader support
-- **Modern Styling** - Tailwind CSS 4 with custom design system
-- **Code Quality** - Automated formatting and linting with Biome and Ultracite
+## 👩‍💻 Developer Guide
+
+### Components & Accessibility
+
+- Always start from primitives in `src/components/ui/` (shadcn/ui + Radix)
+- Extend via composition; avoid re‑inventing interactive elements
+- Maintain keyboard & ARIA semantics
+
+### Routes & Layout
+
+- Route segments live under `src/app/`
+- Global layout & styles: `src/app/layout.tsx`, `src/app/globals.css`
+- Grouped segments like `(main)` for organizational clarity
+
+### Conventions
+
+- TypeScript only; avoid `any`
+- Tailwind utilities over custom CSS where practical
+- Run `pnpm lint` before commits; fix with `pnpm lint:fix`
+
+### Adding Features
+
+- Place audience / feature specific components at root of `components/`
+- Keep reusable primitives in `components/ui/`
+- Add new hooks under `hooks/`
+
+### Auth
+
+- Future auth pages belong in `src/app/auth/` and supporting components in a dedicated folder (e.g. `components/auth/`)
+
+For questions / reviews: contact Motasim Rahman Kazmi.
+
+---
 
 ## 🔧 Configuration
 
-### Tailwind CSS
+### Styling
 
-The project uses Tailwind CSS 4 with a custom configuration. Styles are defined in `src/app/globals.css`.
+Global styles in `src/app/globals.css`. Tailwind v4 defaults; introduce a config file if custom theme scales.
 
 ### shadcn/ui
 
-UI components are configured in `components.json` with the "new-york" style and custom aliases.
+Managed via `components.json` (style: new-york). Generate new primitives with the shadcn CLI then adapt.
 
 ### Code Quality
 
-- Biome is configured to extend Ultracite rules for consistent code formatting
-- lint-staged ensures all files are formatted before commit
+- Biome handles formatting & linting
+- `lint-staged` ensures staged code stays clean
+
+---
 
 ## 🚀 Deployment
 
-This project is optimized for deployment on [Vercel](https://vercel.com/):
+Optimized for instant deployment on **Vercel**:
 
-1. Push your code to GitHub
-2. Import the project in Vercel
-3. Deploy with zero configuration
+1. Push to GitHub
+2. Import repo in Vercel
+3. Deploy (zero config)
 
-The project can also be deployed on any platform that supports Next.js.
+Also deployable anywhere supporting Next.js.
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes
-4. Run `pnpm lint:fix` to ensure code quality
-5. Commit your changes: `git commit -m 'Add amazing feature'`
-6. Push to the branch: `git push origin feature/amazing-feature`
-7. Open a Pull Request
+1. Fork
+2. `git checkout -b feature/your-feature`
+3. Implement changes
+4. `pnpm lint:fix`
+5. Commit & push
+6. Open PR
 
-## 🔗 Links
+---
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [shadcn/ui Documentation](https://ui.shadcn.com/)
-- [Biome Documentation](https://biomejs.dev/)
+## 🔗 Useful Links
+
+- [Next.js Docs](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [shadcn/ui Docs](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Biome](https://biomejs.dev/)
+
+---
+
+Enjoy building! ✨
