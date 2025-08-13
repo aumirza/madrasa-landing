@@ -27,6 +27,88 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+        {/* Title and description */}
+        <title>Madrasa</title>
+        <meta content="Madrasa" property="og:title" />
+
+        <meta
+          content="Madrasa is a platform for learning and teaching Islamic studies."
+          property="og:description"
+        />
+        <meta
+          content="Madrasa is a platform for learning and teaching Islamic studies."
+          name="description"
+        />
+
+        {/* <meta content="#ffffff" name="theme-color" /> */}
+        {/* <link href="/manifest.json" rel="manifest" /> */}
+        {/* <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="default" name="apple-mobile-web-app-status-bar-style" /> */}
+
+        {/* Og and twitter image*/}
+        <meta content="/og-image.png" property="og:image" />
+        <meta content="https://madrasaapp.com" property="og:url" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta content="Madrasa" name="twitter:title" />
+        <meta
+          content="Madrasa is a platform for learning and teaching Islamic studies."
+          name="twitter:description"
+        />
+        <meta content="/og-image.png" name="twitter:image" />
+
+        <link
+          href="android_chrome_192X192.png"
+          rel="icon"
+          sizes="192x192"
+          type="image/png"
+        />
+        <link
+          href="android_chrome_512X512.png"
+          rel="icon"
+          sizes="512x512"
+          type="image/png"
+        />
+        <link
+          href="apple_touch_icon.png"
+          rel="icon"
+          sizes="180x180"
+          type="image/png"
+        />
+        <link
+          href="favicon_16X16.png"
+          rel="icon"
+          sizes="16x16"
+          type="image/png"
+        />
+        <link
+          href="favicon_32X32.png"
+          rel="icon"
+          sizes="32x32"
+          type="image/png"
+        />
+        <link
+          href="favicon_96X96.png"
+          rel="icon"
+          sizes="96x96"
+          type="image/png"
+        />
+        <link
+          href="mstile_150X150.png"
+          rel="icon"
+          sizes="150x150"
+          type="image/png"
+        />
+        <link
+          href="safari_pinned_tab.png"
+          rel="icon"
+          sizes="512x512"
+          type="image/png"
+        />
+      </head>
+
       <body className={`${bricolageGrotesque.variable} ${manrope.variable}`}>
         <main>{children}</main>
       </body>
