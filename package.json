@@ -2,7 +2,7 @@
   "name": "madrasa-landing",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -27,6 +27,7 @@
     "react-day-picker": "^9.8.1",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
+    "react-phone-number-input": "^3.4.12",
     "recharts": "2.15.4",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
