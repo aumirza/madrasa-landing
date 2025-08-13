@@ -10,6 +10,7 @@ import studentsImage from '@/assets/images/students.webp';
 import womenImage from '@/assets/images/women.webp';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
+import { Container } from '../layouts/Container';
 import { HowItWorksSection } from './HowItWorksSection';
 
 const TAB_LIST = {
@@ -60,7 +61,17 @@ export function AudienceTabs() {
     Object.keys(TAB_LIST)[0] as keyof typeof TAB_LIST
   );
   return (
-    <div className="my-10 flex min-h-screen w-full items-center justify-center">
+    <Container className="flex flex-col items-center gap-5" fluid="sm">
+      <div className="flex items-center gap-1.5">
+        {/* ripple animation */}
+        <span className="relative flex h-4 w-4 items-center justify-center">
+          <span className="absolute inline-flex h-full w-full animate-ripple rounded-full bg-primary opacity-75" />
+          <span className="inline-flex h-2 w-2 rounded-full bg-primary" />
+        </span>
+        <p className="font-manrope font-semibold text-xs uppercase">
+          Discover Maktab — Built for All
+        </p>
+      </div>
       <Tabs
         onValueChange={(value) => setActiveTab(value as keyof typeof TAB_LIST)}
         value={activeTab}
@@ -73,10 +84,7 @@ export function AudienceTabs() {
           ))}
         </TabsList>
         <TabsContent value={activeTab}>
-          <div
-            className="flex max-w-5xl animate-slide-in flex-col 2xl:max-w-[1440px]"
-            key={activeTab}
-          >
+          <div className="flex animate-slide-in flex-col" key={activeTab}>
             {/* Banner section */}
             <div
               className={cn(
@@ -121,6 +129,6 @@ export function AudienceTabs() {
           </div>
         </TabsContent>
       </Tabs>
-    </div>
+    </Container>
   );
 }
