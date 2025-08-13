@@ -19,7 +19,7 @@ const classOptions = [
   },
 ];
 
-export default function ClassOptions() {
+export function ClassOptions() {
   return (
     <Container className="flex flex-col items-center gap-8.5 text-center">
       <div className="flex flex-col gap-3.5">
