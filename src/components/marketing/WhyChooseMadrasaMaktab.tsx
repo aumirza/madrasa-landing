@@ -1,4 +1,6 @@
 import { RocketIcon } from '@phosphor-icons/react/dist/ssr';
+import Image from 'next/image';
+import whyLearnFromMaktabImage from '@/assets/images/why-learn-from-maktab.png';
 import { Container } from '../layouts/Container';
 
 const data = [
@@ -26,10 +28,10 @@ const data = [
 
 export function WhyChooseMadrasaMaktab() {
   return (
-    <Container className="flex flex-col gap-8.5">
-      <div className="flex flex-col items-center gap-3.5 text-center">
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex items-center gap-1 rounded-lg bg-gradient-to-r from-semantic-success-50 to-semantic-success-100 px-2 py-1">
+    <Container className="flex flex-col gap-8.5" fluid="sm">
+      <Container className="flex flex-col gap-3.5 sm:items-center sm:text-center">
+        <div className="flex flex-col gap-2 sm:items-center">
+          <div className="flex w-fit items-center gap-1 rounded-lg bg-gradient-to-r from-semantic-success-50 to-semantic-success-100 px-2 py-1">
             <RocketIcon
               className="size-4 text-semantic-success-600"
               weight="bold"
@@ -48,12 +50,19 @@ export function WhyChooseMadrasaMaktab() {
             with technology for a new generation.
           </span>
         </div>
-      </div>
-      <div className="flex">
-        <div className="h-full w-1/3 shrink-0">
-          <div className="aspect-square h-full w-full bg-gray-200" />
+      </Container>
+      <div className="flex flex-col sm:flex-row">
+        <div className="h-full shrink-0 sm:w-1/3">
+          <div className="relative aspect-square h-full w-full overflow-hidden">
+            <Image
+              alt="Why learn from Madrasa Maktab"
+              className="object-cover"
+              fill
+              src={whyLearnFromMaktabImage}
+            />
+          </div>
         </div>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
           {data.map((item) => (
             <div className="flex gap-3.5 border px-5 py-7" key={item.title}>
               {/* Icon Placeholder */}
