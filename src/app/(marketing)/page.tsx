@@ -5,6 +5,7 @@ import { FAQ } from '@/components/marketing/FAQ';
 import { HeroSection } from '@/components/marketing/HeroSection';
 import LatestFromBlog from '@/components/marketing/LatestFromBlog';
 import StuckInDeenBanner from '@/components/marketing/StuckInDeenBannner';
+import { TutorGrid } from '@/components/marketing/TutorGrid';
 import { WhyChooseMadrasaMaktab } from '@/components/marketing/WhyChooseMadrasaMaktab';
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
       <AudienceTabs />
       <CoursesGrid />
       <ClassOptions />
-      <CoursesGrid />
+      <TutorGrid />
       <WhyChooseMadrasaMaktab />
       <FAQ />
       <StuckInDeenBanner />
