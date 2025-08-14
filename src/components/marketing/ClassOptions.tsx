@@ -21,12 +21,10 @@ const classOptions = [
 
 export function ClassOptions() {
   return (
-    <Container className="flex flex-col items-center gap-8.5 text-center">
+    <Container className="flex flex-col items-center gap-8.5 sm:text-center">
       <div className="flex flex-col gap-3.5">
         <h3 className="font-bold text-3xl text-heading leading-[100%]">
-          Your Learning, Your Way -
-          <br />
-          Class Options at Madrasa Maktab
+          Your Learning, Your Way - Class Options at Madrasa Maktab
         </h3>
         <p className="max-w-[32.625rem] font-manrope font-medium text-sm text-subheading leading-5 ">
           We offer flexible online Islamic learning options to suit every
@@ -35,7 +33,7 @@ export function ClassOptions() {
         </p>
       </div>
       {/* card */}
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
         {classOptions.map((option) => (
           <ClassCard key={option.title} {...option} />
         ))}
