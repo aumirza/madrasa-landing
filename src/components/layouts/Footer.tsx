@@ -1,17 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/assets/images/madrasa-logo.svg';
+import ummah from '@/assets/images/ummah.svg';
 import { Container } from './Container';
 import { SocialCloud } from './SocialCloud';
 
 function FooterTop() {
   return (
-    <Container className="bg-primary-700 px-[6.25rem] py-[110px]" fluid>
-      <div className="flex gap-17">
-        <div className="flex w-1/4 flex-col gap-4.5">
+    <Container
+      className="bg-primary-700 px-3 py-5 sm:px-[6.25rem] sm:py-[110px]"
+      fluid
+    >
+      <div className="flex flex-col gap-10 sm:flex-row sm:gap-17">
+        <div className="flex flex-col gap-2 sm:w-1/4 sm:gap-4.5">
           <Image
             alt="Madrasa Logo"
-            className="brightness-0 invert"
+            className="h-20 brightness-0 invert"
             src={logo}
           />
           <p className="font-manrope text-sm text-white">
@@ -135,16 +139,16 @@ function FooterMiddle() {
 function FooterBottom() {
   return (
     <Container className="bg-[#E5E5E5]" fluid>
-      <Container className="flex items-center justify-between py-15">
+      <Container className="flex flex-col items-center justify-between gap-8.5 py-15 sm:flex-row">
         <div>
-          {/* logo place holder */}
-          <div className="h-15 w-44 bg-gray-400" />
+          {/* ummah placeholder */}
+          <Image alt="Ummah placeholder" className="h-15 w-44" src={ummah} />
           <p>
             Crafted with ❤️ by <span className="font-bold">Madrasa Team</span>,
             India
           </p>
         </div>
-        <div className="flex max-w-[21.25rem] flex-col items-end gap-8">
+        <div className="flex max-w-[21.25rem] flex-col gap-8 sm:items-end">
           {/* Social cloud */}
           <SocialCloud />
           {/* Privacy and terms */}
