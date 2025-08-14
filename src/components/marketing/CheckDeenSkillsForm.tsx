@@ -8,7 +8,7 @@ export function CheckDeenSkillsForm() {
   const [_phone, setPhone] = useState<string>();
 
   return (
-    <div className="flex gap-5">
+    <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
       <div className="flex flex-col gap-3">
         <PhoneInput
           className="h-10"
@@ -16,7 +16,7 @@ export function CheckDeenSkillsForm() {
           onChange={(value) => setPhone(value?.toString())}
           placeholder="Enter phone number"
         />
-        <p className="text-center font-manrope font-semibold text-neutral-400 text-xs">
+        <p className="font-manrope font-semibold text-neutral-400 text-xs sm:text-center">
           We’ll help you pick the right Maktab plan.
         </p>
       </div>
