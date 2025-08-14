@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/assets/images/madrasa-logo.svg';
 import { Container } from './Container';
+import { SocialCloud } from './SocialCloud';
 
 function FooterTop() {
   return (
@@ -131,11 +132,42 @@ function FooterMiddle() {
   );
 }
 
+function FooterBottom() {
+  return (
+    <Container className="bg-[#E5E5E5]" fluid>
+      <Container className="flex items-center justify-between py-15">
+        <div>
+          {/* logo place holder */}
+          <div className="h-15 w-44 bg-gray-400" />
+          <p>
+            Crafted with ❤️ by <span className="font-bold">Madrasa Team</span>,
+            India
+          </p>
+        </div>
+        <div className="flex max-w-[21.25rem] flex-col items-end gap-8">
+          {/* Social cloud */}
+          <SocialCloud />
+          {/* Privacy and terms */}
+          <div className="flex items-center gap-3 font-manrope font-medium text-heading text-sm">
+            <Link className="hover:underline" href="/privacy-policy">
+              Privacy policy
+            </Link>
+            <div className="size-1.5 rounded-full bg-primary-300" />
+            <Link className="hover:underline" href="/terms-and-conditions">
+              Terms and conditions
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </Container>
+  );
+}
 export function Footer() {
   return (
     <>
       <FooterTop />
       <FooterMiddle />
+      <FooterBottom />
     </>
   );
 }
