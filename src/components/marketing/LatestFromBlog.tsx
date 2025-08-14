@@ -1,11 +1,30 @@
 'use client';
 
 import { GlobeIcon } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 import { BLOG_DOMAIN } from '@/constants/marketting';
 import { Container } from '../layouts/Container';
 import { BlogCard } from './BlogCard';
 
 export default function LatestFromBlog() {
+  const [api, setApi] = useState<CarouselApi>();
+
+  const scrollPrev = () => {
+    api?.scrollPrev();
+  };
+
+  const scrollNext = () => {
+    api?.scrollNext();
+  };
+
   return (
     <Container className="flex flex-col gap-8.5">
       <div className="flex flex-col items-center gap-3.5 text-center">
@@ -31,10 +50,50 @@ export default function LatestFromBlog() {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-1 grid-rows-1 gap-3.5 md:grid-cols-4">
-        {new Array(4).fill(0).map((_, index) => (
-          <BlogCard key={index} />
-        ))}
+      <div className="group relative mx-12">
+        <Carousel
+          opts={{
+            align: 'start',
+            loop: false,
+            skipSnaps: false,
+            dragFree: false,
+          }}
+          setApi={setApi}
+        >
+          <CarouselContent className="w-full">
+            {/* Use stable keys instead of array index */}
+            {[
+              'latest-from-blog-1',
+              'latest-from-blog-2',
+              'latest-from-blog-3',
+              'latest-from-blog-4',
+              'latest-from-blog-5',
+              'latest-from-blog-6',
+            ].map((id) => (
+              <CarouselItem className="md:basis-1/4" key={id}>
+                <BlogCard />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <Button
+          className="-left-12 -translate-y-1/2 absolute top-1/2 z-10 hidden size-8 rounded-full opacity-0 transition-opacity group-hover:opacity-100 md:flex"
+          onClick={scrollPrev}
+          size="icon"
+          variant="outline"
+        >
+          <ArrowLeft className="size-4" />
+          <span className="sr-only">Previous slide</span>
+        </Button>
+        <Button
+          className="-right-12 -translate-y-1/2 absolute top-1/2 z-10 hidden size-8 rounded-full opacity-0 transition-opacity group-hover:opacity-100 md:flex"
+          onClick={scrollNext}
+          size="icon"
+          variant="outline"
+        >
+          <ArrowRight className="size-4" />
+          <span className="sr-only">Next slide</span>
+        </Button>
       </div>
     </Container>
   );
