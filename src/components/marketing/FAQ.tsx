@@ -43,7 +43,7 @@ const FAQ_DATA = {
 export function FAQ() {
   const [activeTab, setActiveTab] = useState<keyof typeof FAQ_DATA>('class');
   return (
-    <Container className="flex flex-col gap-8">
+    <Container fluid="sm" className="flex flex-col gap-8">
       <div className="flex flex-col items-center gap-3.5">
         <h3 className="text-center font-bold text-3xl text-heading leading-8.5">
           Frequently Asked Questions

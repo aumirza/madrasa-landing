@@ -139,7 +139,7 @@ function FooterMiddle() {
 function FooterBottom() {
   return (
     <Container className="bg-[#E5E5E5]" fluid>
-      <Container className="flex flex-col items-center justify-between gap-8.5 py-15 sm:flex-row">
+      <Container className="flex flex-col sm:items-center justify-between gap-8.5 py-15 sm:flex-row">
         <div>
           {/* ummah placeholder */}
           <Image alt="Ummah placeholder" className="h-15 w-44" src={ummah} />
