@@ -18,7 +18,7 @@ export function CourseCard({ course }: { course?: Course }) {
   return (
     <div className="flex flex-col gap-3.5">
       {/* image */}
-      <div className="relative h-36 w-full overflow-hidden rounded-[.75rem]">
+      <div className="relative h-36 w-full min-w-48 overflow-hidden rounded-[.75rem]">
         <Image
           alt={course?.alt || ''}
           className="object-cover"
