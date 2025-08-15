@@ -33,7 +33,7 @@ export function ClassOptions() {
         </p>
       </div>
       {/* card */}
-      <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+      <div className="flex w-full gap-10 overflow-x-auto sm:grid sm:grid-cols-3">
         {classOptions.map((option) => (
           <ClassCard key={option.title} {...option} />
         ))}
