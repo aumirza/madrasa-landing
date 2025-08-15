@@ -18,7 +18,7 @@ export function TutorCard({ tutor }: { tutor?: Tutor }) {
   return (
     <div className="flex flex-col gap-3.5">
       {/* image */}
-      <div className="relative h-36 w-full overflow-hidden rounded-[.75rem]">
+      <div className="relative h-36 w-56 overflow-hidden rounded-[.75rem] sm:w-full">
         <Image
           alt={tutor?.alt || ''}
           className="object-cover"
