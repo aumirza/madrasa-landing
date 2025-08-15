@@ -7,9 +7,9 @@ import { Button } from '../ui/button';
 export default function StuckInDeenBanner() {
   return (
     <Container>
-      <div className="flex items-center justify-between overflow-x-hidden rounded-xl bg-gradient-to-b from-primary-900 to-primary-700 p-10">
+      <div className="flex flex-col items-center justify-between gap-8 overflow-x-hidden rounded-xl bg-gradient-to-b from-primary-900 to-primary-700 p-10 sm:flex-row">
         {/* right */}
-        <div className="flex w-[25.75rem] flex-col gap-10">
+        <div className="flex w-[25.75rem] max-w-full flex-col gap-10">
           <div className="flex flex-col gap-3.5">
             <h3 className="font-semibold text-3xl text-white leading-[100%]">
               Stuck in Your Deen Journey? Get a Free Skill Check with 1-on-1
@@ -44,7 +44,7 @@ export default function StuckInDeenBanner() {
           </div>
 
           {/* foreground illustration */}
-          <div className="relative z-20 w-[14rem] md:w-[18rem] lg:w-[21rem]">
+          <div className="relative z-20 w-[21rem]">
             <Image
               alt="Person thinking — Stuck in Deen banner"
               className="block"

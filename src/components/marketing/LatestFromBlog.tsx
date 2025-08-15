@@ -27,9 +27,9 @@ export default function LatestFromBlog() {
 
   return (
     <Container className="flex flex-col gap-8.5">
-      <div className="flex flex-col items-center gap-3.5 text-center">
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex items-center gap-1 rounded-lg bg-gradient-to-r from-semantic-success-50 to-semantic-success-100 px-2 py-1">
+      <div className="flex flex-col gap-3.5 sm:items-center sm:text-center">
+        <div className="flex flex-col gap-2 sm:items-center">
+          <div className="flex w-fit items-center gap-1 rounded-lg bg-gradient-to-r from-semantic-success-50 to-semantic-success-100 px-2 py-1">
             <GlobeIcon
               className="size-4 text-semantic-success-600"
               weight="bold"
@@ -50,7 +50,7 @@ export default function LatestFromBlog() {
           </span>
         </div>
       </div>
-      <div className="group relative mx-12">
+      <div className="group relative sm:mx-10">
         <Carousel
           opts={{
             align: 'start',
