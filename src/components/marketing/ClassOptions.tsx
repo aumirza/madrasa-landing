@@ -22,18 +22,18 @@ const classOptions = [
 export function ClassOptions() {
   return (
     <Container className="flex flex-col items-center gap-8.5 sm:text-center">
-      <div className="flex flex-col gap-3.5">
-        <h3 className="font-bold text-3xl text-heading leading-[100%]">
+      <div className="flex flex-col items-center gap-3.5 sm:text-center">
+        <h3 className="max-w-[40rem] font-bold text-3xl text-heading leading-[100%]">
           Your Learning, Your Way - Class Options at Madrasa Maktab
         </h3>
-        <p className="max-w-[32.625rem] font-manrope font-medium text-sm text-subheading leading-5 ">
+        <p className="max-w-[32.5rem] font-manrope font-medium text-sm text-subheading leading-5 ">
           We offer flexible online Islamic learning options to suit every
           learner — whether you prefer personal attention, group interaction, or
           learning with close friends.
         </p>
       </div>
       {/* card */}
-      <div className="flex w-full gap-10 overflow-x-auto sm:grid sm:grid-cols-3">
+      <div className="flex w-full gap-5 overflow-x-auto sm:grid sm:grid-cols-3 sm:gap-10">
         {classOptions.map((option) => (
           <ClassCard key={option.title} {...option} />
         ))}
