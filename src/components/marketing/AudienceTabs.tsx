@@ -1,7 +1,7 @@
 'use client';
 import { ArrowRightIcon } from '@phosphor-icons/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import bgGridImage from '@/assets/images/bg-grid.svg';
 import kidsImage from '@/assets/images/kids.webp';
 import parentsImage from '@/assets/images/parents.webp';
@@ -57,9 +57,12 @@ const TAB_LIST = {
 };
 
 export function AudienceTabs() {
-  const [activeTab, setActiveTab] = useState<keyof typeof TAB_LIST>(
-    Object.keys(TAB_LIST)[0] as keyof typeof TAB_LIST
+  const tabKeys = useMemo(
+    () => Object.keys(TAB_LIST) as Array<keyof typeof TAB_LIST>,
+    []
   );
+  const [activeTab, setActiveTab] = useState<keyof typeof TAB_LIST>(tabKeys[0]);
+  const prevIndexRef = useRef(0);
   return (
     <Container className="flex flex-col items-center gap-5" fluid="sm">
       <div className="flex items-center gap-1.5">
@@ -73,7 +76,11 @@ export function AudienceTabs() {
         </p>
       </div>
       <Tabs
-        onValueChange={(value) => setActiveTab(value as keyof typeof TAB_LIST)}
+        onValueChange={(value) => {
+          const next = value as keyof typeof TAB_LIST;
+          prevIndexRef.current = tabKeys.indexOf(activeTab);
+          setActiveTab(next);
+        }}
         value={activeTab}
       >
         <TabsList>
@@ -84,7 +91,17 @@ export function AudienceTabs() {
           ))}
         </TabsList>
         <TabsContent value={activeTab}>
-          <div className="flex animate-slide-in flex-col" key={activeTab}>
+          {/* Determine animation direction by comparing previous tab index */}
+          <div
+            className={cn(
+              'flex flex-col',
+              // apply direction aware animation
+              prevIndexRef.current <= tabKeys.indexOf(activeTab)
+                ? 'animate-slide-in-right'
+                : 'animate-slide-in-left'
+            )}
+            key={activeTab}
+          >
             {/* Banner section */}
             <div
               className={cn(
