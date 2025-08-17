@@ -115,7 +115,6 @@ export function PhoneInput({
       flagComponent={FlagComponent}
       id={idToPass}
       inputComponent={InputComponent}
-      international
       placeholder={placeholder || 'Enter your mobile number'}
       value={value}
       {...restProps}
