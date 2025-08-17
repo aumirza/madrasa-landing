@@ -29,7 +29,7 @@ export function CoursesGrid() {
           child-safe, spiritually uplifting environment, right from home.
         </p>
       </div>
-      <div className="flex gap-5 overflow-x-auto sm:grid sm:grid-cols-3 sm:gap-3.5 md:grid-cols-4">
+      <div className="flex gap-5 overflow-x-auto sm:gap-3.5 md:grid md:grid-cols-3 lg:grid-cols-4">
         {new Array(8).fill(null).map((_, index) => (
           <CourseCard course={defaultCourseData} key={index} />
         ))}

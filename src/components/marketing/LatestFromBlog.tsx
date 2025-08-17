@@ -70,7 +70,10 @@ export default function LatestFromBlog() {
               'latest-from-blog-5',
               'latest-from-blog-6',
             ].map((id) => (
-              <CarouselItem className="basis-[70%] sm:basis-1/4" key={id}>
+              <CarouselItem
+                className="basis-[70%] md:basis-1/3 lg:basis-1/4"
+                key={id}
+              >
                 <BlogCard />
               </CarouselItem>
             ))}
