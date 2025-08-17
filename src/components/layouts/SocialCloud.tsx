@@ -8,7 +8,7 @@ import whatsappIcon from '@/assets/icons/whatsapp.svg';
 
 export function SocialCloud() {
   return (
-    <div className="flex flex-wrap gap-4 sm:justify-end">
+    <div className="flex flex-wrap gap-2 sm:justify-end">
       <Link
         className="flex items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-2 font-medium text-sm shadow"
         href="https://facebook.com"
