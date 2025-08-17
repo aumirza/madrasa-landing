@@ -26,13 +26,6 @@ export function TutorCard({ tutor }: { tutor?: Tutor }) {
           src={tutor?.imageSrc || ''}
           title={tutor?.title}
         />
-        {tutor?.isLive ? (
-          <div className="absolute top-1 right-1 z-20 flex items-center gap-1 rounded-xl bg-white px-1.5 py-0.5">
-            <div className="size-2 rounded-full bg-semantic-error-500" />
-            <span className="font-bold font-manrope text-sm">Live</span>
-          </div>
-        ) : null}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-30% from-primary/0 to-primary/100 opacity-80" />
       </div>
       {/* content */}
       <div className="flex flex-col gap-3">

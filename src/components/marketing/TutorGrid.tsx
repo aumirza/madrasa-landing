@@ -28,7 +28,7 @@ export function TutorGrid() {
           lesson with the teacher who best matches your needs.
         </p>
       </div>
-      <div className="flex gap-3.5 overflow-x-auto sm:grid sm:grid-cols-3 md:grid-cols-4">
+      <div className="flex gap-5 overflow-x-auto sm:grid sm:grid-cols-3 sm:gap-3.5 md:grid-cols-4">
         {new Array(8).fill(null).map((_, index) => (
           <TutorCard
             key={`${defaultTutorData.id}-${index}`}
