@@ -26,7 +26,7 @@ export default function LatestFromBlog() {
   };
 
   return (
-    <Container className="flex flex-col gap-8.5">
+    <Container className="flex flex-col gap-8.5" fluid="sm">
       <div className="flex flex-col gap-3.5 sm:items-center sm:text-center">
         <div className="flex flex-col gap-2 sm:items-center">
           <div className="flex w-fit items-center gap-1 rounded-lg bg-gradient-to-r from-semantic-success-50 to-semantic-success-100 px-2 py-1">
@@ -60,7 +60,7 @@ export default function LatestFromBlog() {
           }}
           setApi={setApi}
         >
-          <CarouselContent className="w-full">
+          <CarouselContent className="w-full px-5">
             {/* Use stable keys instead of array index */}
             {[
               'latest-from-blog-1',
@@ -70,7 +70,7 @@ export default function LatestFromBlog() {
               'latest-from-blog-5',
               'latest-from-blog-6',
             ].map((id) => (
-              <CarouselItem className="md:basis-1/4" key={id}>
+              <CarouselItem className="basis-[70%] sm:basis-1/4" key={id}>
                 <BlogCard />
               </CarouselItem>
             ))}
