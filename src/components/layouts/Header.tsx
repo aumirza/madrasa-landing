@@ -15,15 +15,15 @@ export function Header() {
   return (
     <div
       className={cn(
-        'fixed top-0 right-0 left-0 z-50 flex items-center justify-between gap-5 px-4.5 py-4 shadow-lg transition-all duration-300 ease-in-out md:px-10',
+        'fixed top-0 right-0 left-0 z-50 flex items-center justify-between gap-5 px-4.5 py-4 transition-all duration-300 ease-in-out md:px-10',
         // Glass effect styles
-        'border-white/20 border-b bg-white/50 backdrop-blur-sm',
+        'border-white/20 border-b bg-white/50 backdrop-blur-xl',
         // Show/hide based on scroll direction
         scrollDirection === 'down' && !isAtTop
           ? '-translate-y-full'
-          : 'translate-y-0'
+          : 'translate-y-0',
         // Shadow effect when not at top
-        // !isAtTop && 'shadow-black/5 shadow-lg'
+        !isAtTop && 'shadow-black/5 shadow-md'
       )}
       id="site-header"
     >
