@@ -10,7 +10,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import { BLOG_DOMAIN } from '@/constants/marketting';
+import { BLOG_DOMAIN } from '@/constants/marketing';
 import { Container } from '../layouts/Container';
 import { BlogCard } from './BlogCard';
 
