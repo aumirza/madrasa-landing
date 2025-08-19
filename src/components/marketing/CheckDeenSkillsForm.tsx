@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { PhoneInput } from '../ui/phone-input';
+import { LeadDrawer } from './LeadDrawer';
 
 export function CheckDeenSkillsForm() {
-  const [_phone, setPhone] = useState<string>();
+  const [phone, setPhone] = useState<string>();
 
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
@@ -20,12 +21,14 @@ export function CheckDeenSkillsForm() {
           We’ll help you pick the right Maktab plan.
         </p>
       </div>
-      <Button
-        className="rounded-lg bg-gradient-to-b from-neutral-600 to-neutral-950 px-5 py-2.5 "
-        size="lg"
-      >
-        Check my deen skills
-      </Button>
+      <LeadDrawer phone={phone}>
+        <Button
+          className="rounded-lg bg-gradient-to-b from-neutral-600 to-neutral-950 px-5 py-2.5 "
+          size="lg"
+        >
+          Check my deen skills
+        </Button>
+      </LeadDrawer>
     </div>
   );
 }
