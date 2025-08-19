@@ -1,7 +1,7 @@
 'use client';
 import { ArrowRightIcon } from '@phosphor-icons/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import bgGridImage from '@/assets/images/bg-grid.svg';
 import kidsImage from '@/assets/images/kids.webp';
 import parentsImage from '@/assets/images/parents.webp';
@@ -10,6 +10,7 @@ import studentsImage from '@/assets/images/students.webp';
 import womenImage from '@/assets/images/women.webp';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
+import { Container } from '../layouts/Container';
 import { HowItWorksSection } from './HowItWorksSection';
 
 const TAB_LIST = {
@@ -56,13 +57,30 @@ const TAB_LIST = {
 };
 
 export function AudienceTabs() {
-  const [activeTab, setActiveTab] = useState<keyof typeof TAB_LIST>(
-    Object.keys(TAB_LIST)[0] as keyof typeof TAB_LIST
+  const tabKeys = useMemo(
+    () => Object.keys(TAB_LIST) as Array<keyof typeof TAB_LIST>,
+    []
   );
+  const [activeTab, setActiveTab] = useState<keyof typeof TAB_LIST>(tabKeys[0]);
+  const prevIndexRef = useRef(0);
   return (
-    <div className="my-10 flex min-h-screen w-full items-center justify-center">
+    <Container className="flex flex-col items-center gap-5" fluid="sm">
+      <div className="flex items-center gap-1.5">
+        {/* ripple animation */}
+        <span className="relative flex h-4 w-4 items-center justify-center">
+          <span className="absolute inline-flex h-full w-full animate-ripple rounded-full bg-primary opacity-75" />
+          <span className="inline-flex h-2 w-2 rounded-full bg-primary" />
+        </span>
+        <p className="font-manrope font-semibold text-xs uppercase">
+          Discover Maktab — Built for All
+        </p>
+      </div>
       <Tabs
-        onValueChange={(value) => setActiveTab(value as keyof typeof TAB_LIST)}
+        onValueChange={(value) => {
+          const next = value as keyof typeof TAB_LIST;
+          prevIndexRef.current = tabKeys.indexOf(activeTab);
+          setActiveTab(next);
+        }}
         value={activeTab}
       >
         <TabsList>
@@ -73,8 +91,15 @@ export function AudienceTabs() {
           ))}
         </TabsList>
         <TabsContent value={activeTab}>
+          {/* Determine animation direction by comparing previous tab index */}
           <div
-            className="flex max-w-5xl animate-slide-in flex-col 2xl:max-w-[1440px]"
+            className={cn(
+              'flex flex-col',
+              // apply direction aware animation
+              prevIndexRef.current <= tabKeys.indexOf(activeTab)
+                ? 'animate-slide-in-right'
+                : 'animate-slide-in-left'
+            )}
             key={activeTab}
           >
             {/* Banner section */}
@@ -121,6 +146,6 @@ export function AudienceTabs() {
           </div>
         </TabsContent>
       </Tabs>
-    </div>
+    </Container>
   );
 }

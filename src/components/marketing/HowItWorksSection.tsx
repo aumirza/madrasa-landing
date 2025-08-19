@@ -25,7 +25,7 @@ export function HowItWorksSection() {
   const steps = HOW_IT_WORKS_STEPS.map((item) => (
     <div className="flex gap-3.5" key={item.title}>
       {/* Icon Placeholder */}
-      <div className="size-10 shrink-0 rounded-xl bg-accent" />
+      <div className="size-10 shrink-0 rounded-lg bg-accent" />
 
       {/* Text content */}
       <div className="flex flex-col gap-1">
@@ -37,7 +37,7 @@ export function HowItWorksSection() {
     </div>
   ));
   return (
-    <div className="grid grid-cols-2 divide-x lg:h-[21.25rem]">
+    <div className="grid grid-cols-2 divide-x ">
       {/*1. Left: CTA section */}
       <div className="col-span-2 flex h-full flex-1 shrink-0 flex-col justify-between gap-8.5 px-5 py-8.5 sm:p-10 md:col-span-1">
         {/* Top:  Title and description */}

@@ -49,6 +49,34 @@ export function MobileNav() {
     return () => window.removeEventListener('resize', measure);
   }, []);
 
+  // Track actual viewport height (visualViewport on mobile) so we can set
+  // the panel to exactly the remaining space. visualViewport is more
+  // accurate on mobile browsers that shrink the viewport when the
+  // on-screen keyboard appears.
+  const [viewportHeight, setViewportHeight] = useState<number>(() =>
+    typeof window !== 'undefined'
+      ? (window.visualViewport?.height ?? window.innerHeight)
+      : 0
+  );
+
+  useEffect(() => {
+    const setVH = () => {
+      const h = window.visualViewport?.height ?? window.innerHeight;
+      setViewportHeight(h);
+    };
+    setVH();
+    window.addEventListener('resize', setVH);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', setVH);
+    }
+    return () => {
+      window.removeEventListener('resize', setVH);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', setVH);
+      }
+    };
+  }, []);
+
   const toggle = useCallback(() => setOpen((o) => !o), []);
   const close = useCallback(() => {
     setOpen(false);
@@ -123,7 +151,10 @@ export function MobileNav() {
             role="dialog"
             style={{
               top: headerHeight,
-              height: `calc(100dvh - ${headerHeight}px)`,
+              // Use measured viewport height so the panel always fills the
+              // remaining space. This works around inconsistencies between
+              // dvh/svh on some mobile browsers.
+              height: `${Math.max(0, viewportHeight - headerHeight)}px`,
               width: '100vw',
             }}
             transition={{
@@ -143,7 +174,7 @@ export function MobileNav() {
                   // Submenu view
                   <motion.div
                     animate={{ x: 0 }}
-                    className="absolute inset-0 bg-white"
+                    className="absolute inset-0 overflow-auto bg-white"
                     exit={{ x: '100%' }}
                     initial={{ x: '100%' }}
                     key={`submenu-${currentSubmenu}`}
@@ -187,7 +218,7 @@ export function MobileNav() {
                   // Main menu view
                   <motion.div
                     animate={{ x: 0 }}
-                    className="absolute inset-0 bg-white"
+                    className="absolute inset-0 overflow-auto bg-white"
                     exit={{ x: '-100%' }}
                     initial={{ x: '-100%' }}
                     key="main-menu"
