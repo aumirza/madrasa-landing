@@ -1,3 +1,4 @@
+import { PhoneIcon } from '@phosphor-icons/react/ssr';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/assets/images/madrasa-logo.svg';
@@ -10,29 +11,88 @@ import { SocialCloud } from './SocialCloud';
 function FooterTop() {
   return (
     <Container
-      className="bg-primary-700 px-3 py-5 sm:px-[6.25rem] sm:py-[110px]"
+      className="bg-gradient-to-b from-[#0A0414] to-[#4B1F90] px-3 py-5 sm:px-[6.25rem] sm:py-[110px]"
       fluid
     >
       <div className="flex flex-col gap-10 sm:flex-row sm:gap-17">
-        <div className="flex flex-col gap-2 sm:w-1/4 sm:gap-4.5">
-          <Image
-            alt="Madrasa Logo"
-            className="h-20 brightness-0 invert"
-            src={logo}
-          />
-          <p className="font-manrope text-sm text-white">
-            An online Islamic Learning for Kids, Adults & Professionals in
-            India.
-          </p>
-          <p className="font-manrope text-sm text-white">
-            91 988-660-2456 (9 AM to 10:00 PM) support@madrasaapp.com
-          </p>
+        <div className="flex flex-1 flex-col gap-2 ">
+          <div className="flex h-full w-[21.75rem] flex-col justify-between text-white">
+            <div className="space-y-4">
+              <Image
+                alt="Madrasa Logo"
+                className="h-20 brightness-0 invert"
+                src={logo}
+              />
+              <h3 className="font-semibold text-2xl leading-7">
+                Where the Ummah connects to Learn, Inspire and Strengthen Faith.
+              </h3>
+            </div>
+            <div className="space-y-3">
+              <div className="space-y-1">
+                <h4 className="font-bold text-lg leading-5">Reach out to us</h4>
+                <p className="font-manrope font-medium text-sm leading-5">
+                  Get your questions answered about learning with Madrasa team.
+                </p>
+              </div>
+              <Button
+                className="rounded-lg bg-gradient-to-b from-semantic-success-50 to-semantic-success-100 font-bold text-semantic-success-500 text-xs"
+                size="sm"
+              >
+                <PhoneIcon
+                  className="size-4 text-semantic-success-500"
+                  weight="bold"
+                />
+                Call +91-9113110996
+              </Button>
+            </div>
+          </div>
         </div>
         {/* links */}
-        <div className="grid flex-1 grid-cols-3">
+        <div className="grid flex-1 grid-cols-2 gap-11">
           {[
             {
-              title: 'Solutions',
+              title: 'Tutor (Ustaad)',
+              links: [
+                {
+                  label: 'Quran Tutors for Kids (Male)',
+                  href: '/tutors/quran-kids-male',
+                },
+                {
+                  label: 'Quran Tutors for Kids (Female)',
+                  href: '/tutors/quran-kids-female',
+                },
+                {
+                  label: 'Islamic Tutors for Students',
+                  href: '/tutors/islamic-students',
+                },
+                {
+                  label: 'Professional Tutors for Adults',
+                  href: '/tutors/professionals',
+                },
+                {
+                  label: 'Women-Only Female Tutors',
+                  href: '/tutors/women-only',
+                },
+              ],
+            },
+            {
+              title: 'Courses',
+              links: [
+                {
+                  label: 'Noorani Qaida for Kids',
+                  href: '/courses/noorani-qaida',
+                },
+                { label: 'Hifz for Kids & Students', href: '/courses/hifz' },
+                {
+                  label: 'Islamic Studies for Professionals',
+                  href: '/courses/islamic-studies-professionals',
+                },
+                { label: 'Arabic for All Ages', href: '/courses/arabic' },
+                { label: 'Women-Only Classes', href: '/courses/women-only' },
+              ],
+            },
+            {
+              title: 'Solution',
               links: [
                 { label: 'For Parents', href: '/parents' },
                 { label: 'For Kids', href: '/kids' },
@@ -42,23 +102,19 @@ function FooterTop() {
               ],
             },
             {
-              title: 'Course',
+              title: 'Madrasa Tools',
               links: [
-                { label: 'For Parents', href: '/parents' },
-                { label: 'For Kids', href: '/kids' },
-                { label: 'For Students', href: '/students' },
-                { label: 'For Professionals', href: '/professionals' },
-                { label: 'Women Only', href: '/women' },
-              ],
-            },
-            {
-              title: 'Solutions 2',
-              links: [
-                { label: 'For Parents', href: '/parents' },
-                { label: 'For Kids', href: '/kids' },
-                { label: 'For Students', href: '/students' },
-                { label: 'For Professionals', href: '/professionals' },
-                { label: 'Women Only', href: '/women' },
+                { label: 'Al-Quran', href: '/tools/al-quran' },
+                {
+                  label: 'Asma UI Husna (99 Names)',
+                  href: '/tools/asma-ul-husna',
+                },
+                { label: 'Daily Dua', href: '/tools/daily-dua' },
+                {
+                  label: 'Feeling Based Dua',
+                  href: '/tools/feeling-based-dua',
+                },
+                { label: 'Zakat Calculator', href: '/tools/zakat-calculator' },
               ],
             },
           ].map((col) => (
