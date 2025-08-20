@@ -3,6 +3,10 @@
 import { GlobeIcon } from '@phosphor-icons/react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import blogImg1 from '@/assets/images/blog-1.png';
+import blogImg2 from '@/assets/images/blog-2.png';
+import blogImg3 from '@/assets/images/blog-3.png';
+import blogImg4 from '@/assets/images/blog-4.png';
 import { Button } from '@/components/ui/button';
 import {
   Carousel,
@@ -63,18 +67,44 @@ export default function LatestFromBlog() {
           <CarouselContent className="w-full px-5">
             {/* Use stable keys instead of array index */}
             {[
-              'latest-from-blog-1',
-              'latest-from-blog-2',
-              'latest-from-blog-3',
-              'latest-from-blog-4',
-              'latest-from-blog-5',
-              'latest-from-blog-6',
-            ].map((id) => (
+              {
+                id: 'blog-1',
+                title:
+                  'The Maktab Revival: Why Your Child Needs It Now More Than Ever',
+                date: '26th July 2025',
+                image: blogImg1,
+                href: '#',
+              },
+              {
+                id: 'blog-2',
+                title:
+                  'How Maktab Helps Your Child Build Deen from Day One — With Care and Clarity',
+                date: '26th July 2025',
+                image: blogImg2,
+                href: '#',
+              },
+              {
+                id: 'blog-3',
+                title:
+                  "Maktab Is Coming – And It's Everything Your Child's Deen Journey Has Been Missing",
+                date: '26th July 2025',
+                image: blogImg3,
+                href: '#',
+              },
+              {
+                id: 'blog-4',
+                title:
+                  "The Soulful Way to Teach Qur'an in Today's Digital Age — Without Losing Their Focus",
+                date: '26th July 2025',
+                image: blogImg4,
+                href: '#',
+              },
+            ].map((b) => (
               <CarouselItem
                 className="basis-[70%] md:basis-1/3 lg:basis-1/4"
-                key={id}
+                key={b.id}
               >
-                <BlogCard />
+                <BlogCard date={b.date} image={b.image} title={b.title} />
               </CarouselItem>
             ))}
           </CarouselContent>
