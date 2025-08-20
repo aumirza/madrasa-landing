@@ -21,7 +21,7 @@ export function CheckDeenSkillsForm() {
         </p>
       </div>
       <Button
-        className="rounded-lg bg-gradient-to-b from-neutral-600 to-neutral-950 px-5 py-2.5 "
+        className="h-10 rounded-lg bg-gradient-to-b from-neutral-600 to-neutral-950 px-5 py-2.5 "
         size="lg"
       >
         Check my deen skills
