@@ -1,7 +1,7 @@
 import { PhoneIcon } from '@phosphor-icons/react/ssr';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '@/assets/images/madrasa-logo.svg';
+import logoSquare from '@/assets/images/logo-square.svg';
 import ummah from '@/assets/images/ummah.svg';
 import { Button } from '../ui/button';
 import { Container } from './Container';
@@ -20,8 +20,8 @@ function FooterTop() {
             <div className="space-y-4">
               <Image
                 alt="Madrasa Logo"
-                className="h-20 brightness-0 invert"
-                src={logo}
+                className="max-h-15 max-w-15"
+                src={logoSquare}
               />
               <h3 className="font-semibold text-2xl leading-7">
                 Where the Ummah connects to Learn, Inspire and Strengthen Faith.
