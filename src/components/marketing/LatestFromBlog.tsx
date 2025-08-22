@@ -1,16 +1,16 @@
 'use client';
 
 import { GlobeIcon } from '@phosphor-icons/react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+// import { ArrowLeft, ArrowRight } from 'lucide-react';
+// import { useState } from 'react';
 import blogImg1 from '@/assets/images/blog-1.png';
 import blogImg2 from '@/assets/images/blog-2.png';
 import blogImg3 from '@/assets/images/blog-3.png';
 import blogImg4 from '@/assets/images/blog-4.png';
-import { Button } from '@/components/ui/button';
+// import { Button } from '@/components/ui/button';
 import {
   Carousel,
-  type CarouselApi,
+  // type CarouselApi,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
@@ -19,19 +19,19 @@ import { Container } from '../layouts/Container';
 import { BlogCard } from './BlogCard';
 
 export default function LatestFromBlog() {
-  const [api, setApi] = useState<CarouselApi>();
+  // const [api, setApi] = useState<CarouselApi>();
 
-  const scrollPrev = () => {
-    api?.scrollPrev();
-  };
+  // const scrollPrev = () => {
+  //   api?.scrollPrev();
+  // };
 
-  const scrollNext = () => {
-    api?.scrollNext();
-  };
+  // const scrollNext = () => {
+  //   api?.scrollNext();
+  // };
 
   return (
     <Container className="flex flex-col gap-8.5" fluid="sm">
-      <div className="flex flex-col gap-3.5 sm:items-center sm:text-center">
+      <Container className="flex flex-col gap-3.5 sm:items-center sm:text-center">
         <div className="flex flex-col gap-2 sm:items-center">
           <div className="flex w-fit items-center gap-1 rounded-lg bg-gradient-to-r from-semantic-success-50 to-semantic-success-100 px-2 py-1">
             <GlobeIcon
@@ -53,63 +53,63 @@ export default function LatestFromBlog() {
             digital-first Muslim generation.
           </span>
         </div>
-      </div>
-      <div className="group relative sm:mx-10">
-        <Carousel
-          opts={{
-            align: 'start',
-            loop: false,
-            skipSnaps: false,
-            dragFree: false,
-          }}
-          setApi={setApi}
-        >
-          <CarouselContent className="w-full px-5">
-            {/* Use stable keys instead of array index */}
-            {[
-              {
-                id: 'blog-1',
-                title:
-                  'The Maktab Revival: Why Your Child Needs It Now More Than Ever',
-                date: '26th July 2025',
-                image: blogImg1,
-                href: '#',
-              },
-              {
-                id: 'blog-2',
-                title:
-                  'How Maktab Helps Your Child Build Deen from Day One — With Care and Clarity',
-                date: '26th July 2025',
-                image: blogImg2,
-                href: '#',
-              },
-              {
-                id: 'blog-3',
-                title:
-                  "Maktab Is Coming – And It's Everything Your Child's Deen Journey Has Been Missing",
-                date: '26th July 2025',
-                image: blogImg3,
-                href: '#',
-              },
-              {
-                id: 'blog-4',
-                title:
-                  "The Soulful Way to Teach Qur'an in Today's Digital Age — Without Losing Their Focus",
-                date: '26th July 2025',
-                image: blogImg4,
-                href: '#',
-              },
-            ].map((b) => (
-              <CarouselItem
-                className="basis-[70%] md:basis-1/3 lg:basis-1/4"
-                key={b.id}
-              >
-                <BlogCard date={b.date} image={b.image} title={b.title} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        <Button
+      </Container>
+      {/* <div className="group relative sm:mx-10"> */}
+      <Carousel
+        opts={{
+          align: 'start',
+          loop: false,
+          skipSnaps: false,
+          dragFree: false,
+        }}
+        // setApi={setApi}
+      >
+        <CarouselContent className="w-full px-5">
+          {/* Use stable keys instead of array index */}
+          {[
+            {
+              id: 'blog-1',
+              title:
+                'The Maktab Revival: Why Your Child Needs It Now More Than Ever',
+              date: '26th July 2025',
+              image: blogImg1,
+              href: '#',
+            },
+            {
+              id: 'blog-2',
+              title:
+                'How Maktab Helps Your Child Build Deen from Day One — With Care and Clarity',
+              date: '26th July 2025',
+              image: blogImg2,
+              href: '#',
+            },
+            {
+              id: 'blog-3',
+              title:
+                "Maktab Is Coming – And It's Everything Your Child's Deen Journey Has Been Missing",
+              date: '26th July 2025',
+              image: blogImg3,
+              href: '#',
+            },
+            {
+              id: 'blog-4',
+              title:
+                "The Soulful Way to Teach Qur'an in Today's Digital Age — Without Losing Their Focus",
+              date: '26th July 2025',
+              image: blogImg4,
+              href: '#',
+            },
+          ].map((b) => (
+            <CarouselItem
+              className="basis-[70%] md:basis-1/3 lg:basis-1/4"
+              key={b.id}
+            >
+              <BlogCard date={b.date} image={b.image} title={b.title} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      {/* <Button
           className="-left-12 -translate-y-1/2 absolute top-1/2 z-10 hidden size-8 rounded-full opacity-0 transition-opacity group-hover:opacity-100 md:flex"
           onClick={scrollPrev}
           size="icon"
@@ -127,7 +127,7 @@ export default function LatestFromBlog() {
           <ArrowRight className="size-4" />
           <span className="sr-only">Next slide</span>
         </Button>
-      </div>
+      </div> */}
     </Container>
   );
 }
