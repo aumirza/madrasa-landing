@@ -64,7 +64,7 @@ export default function LatestFromBlog() {
         }}
         // setApi={setApi}
       >
-        <CarouselContent className="w-full px-5">
+        <CarouselContent className="w-full px-5 sm:px-0">
           {/* Use stable keys instead of array index */}
           {[
             {
