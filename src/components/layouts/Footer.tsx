@@ -48,7 +48,7 @@ function FooterTop() {
           </div>
         </div>
         {/* links */}
-        <div className="grid flex-1 grid-cols-2 gap-11">
+        <div className="grid flex-1 gap-8 sm:grid-cols-2 sm:gap-11">
           {[
             {
               title: 'Tutor (Ustaad)',
@@ -122,7 +122,7 @@ function FooterTop() {
               <span className="font-semibold text-white">{col.title}</span>
               {col.links.map((link) => (
                 <Link
-                  className="font-manrope font-medium text-[#E5E5E5] text-sm"
+                  className="font-manrope font-medium text-[#E5E5E5] text-sm leading-6"
                   href={link.href}
                   key={link.label}
                 >
