@@ -177,7 +177,7 @@ export function FAQ() {
             <span className="inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
           <p className="font-manrope font-semibold text-xs uppercase">
-            Swipe to see more lists
+            Switch category to Find more answers
           </p>
         </div>
       </div>
