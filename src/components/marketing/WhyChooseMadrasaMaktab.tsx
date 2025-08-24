@@ -1,6 +1,6 @@
 import { RocketIcon } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
-import whyLearnFromMaktabImage from '@/assets/images/why-learn-from-maktab.png';
+import whyLearnFromMaktabImage from '@/assets/images/why-learn-from-maktab.webp';
 import { Container } from '../layouts/Container';
 
 const data = [

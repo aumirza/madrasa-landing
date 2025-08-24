@@ -1,4 +1,4 @@
-import courseImg from '@/assets/images/course-1.png';
+import courseImg from '@/assets/images/course-1.webp';
 import { Container } from '../layouts/Container';
 import { CourseCard } from './CourseCard';
 

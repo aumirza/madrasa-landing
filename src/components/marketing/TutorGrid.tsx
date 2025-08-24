@@ -1,4 +1,4 @@
-import tutorImg from '@/assets/images/Tutor.png';
+import tutorImg from '@/assets/images/tutor.webp';
 import { Container } from '../layouts/Container';
 import { TutorCard } from './TutorCard';
 
