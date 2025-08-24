@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import bannerEffect from '@/assets/images/banner-effect.png';
-import stuckBanner from '@/assets/images/stuck-in-deen-banner.png';
+import bannerEffect from '@/assets/images/banner-effect.webp';
+import stuckBanner from '@/assets/images/stuck-in-deen-banner.webp';
 import { Container } from '../layouts/Container';
 import { Button } from '../ui/button';
 

@@ -1,6 +1,6 @@
 import { MonitorPlayIcon } from '@phosphor-icons/react/ssr';
 import Image, { type StaticImageData } from 'next/image';
-import defaultBlogImg from '@/assets/images/blog-1.png';
+import defaultBlogImg from '@/assets/images/blog-1.webp';
 
 type Props = {
   title: string;

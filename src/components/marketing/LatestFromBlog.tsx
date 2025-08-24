@@ -3,10 +3,10 @@
 import { GlobeIcon } from '@phosphor-icons/react';
 // import { ArrowLeft, ArrowRight } from 'lucide-react';
 // import { useState } from 'react';
-import blogImg1 from '@/assets/images/blog-1.png';
-import blogImg2 from '@/assets/images/blog-2.png';
-import blogImg3 from '@/assets/images/blog-3.png';
-import blogImg4 from '@/assets/images/blog-4.png';
+import blogImg1 from '@/assets/images/blog-1.webp';
+import blogImg2 from '@/assets/images/blog-2.webp';
+import blogImg3 from '@/assets/images/blog-3.webp';
+import blogImg4 from '@/assets/images/blog-4.webp';
 // import { Button } from '@/components/ui/button';
 import {
   Carousel,
