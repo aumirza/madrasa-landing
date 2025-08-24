@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import { Bricolage_Grotesque, Manrope } from 'next/font/google';
+import { AuthInitializer } from '@/components/AuthInitializer';
+import ReactQueryProvider from '@/components/ReactQueryProvider';
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -110,7 +112,10 @@ export default function RootLayout({
       </head>
 
       <body className={`${bricolageGrotesque.variable} ${manrope.variable}`}>
-        <main>{children}</main>
+        <AuthInitializer />
+        <ReactQueryProvider>
+          <main>{children}</main>
+        </ReactQueryProvider>
       </body>
     </html>
   );
