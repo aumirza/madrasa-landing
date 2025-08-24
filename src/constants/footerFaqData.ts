@@ -1,4 +1,4 @@
-export const footerFaqData = [
+export const FOOTER_FAQ_DATA = [
   {
     title:
       'About Madrasa: Online Islamic Learning for Kids, Adults & Professionals in India',

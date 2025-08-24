@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { footerFaqData } from '@/constants/footerFaqData';
+import { FOOTER_FAQ_DATA } from '@/constants/footerFaqData';
 import { Container } from './Container';
 
 export function MidFooter() {
@@ -12,7 +12,7 @@ export function MidFooter() {
     <Container className="flex flex-col gap-6 py-15">
       <div className="flex flex-col gap-3.5 ">
         <Accordion type="multiple">
-          {footerFaqData.map((section, sIdx) => (
+          {FOOTER_FAQ_DATA.map((section, sIdx) => (
             <AccordionItem
               className="rounded-none border-b bg-transparent"
               key={section.title}
