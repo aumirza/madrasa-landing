@@ -3,8 +3,6 @@ import Image from 'next/image';
 import type React from 'react';
 import { useForm } from 'react-hook-form';
 import whatsappIcon from '@/assets/icons/whatsapp.svg';
-import { Button } from '@/components/ui/button';
-
 import {
   Form,
   FormControl,
@@ -14,6 +12,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { LoadingButton } from '@/components/ui/loading-button';
 import {
   Select,
   SelectContent,
@@ -22,17 +21,15 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { type LeadFormValues, leadSchema } from '@/constants/leadSchema';
+import { useEnquiryMutation } from '@/lib/enquiryApi';
 import { PhoneInput } from '../ui/phone-input';
 
 export type LeadFormProps = {
-  onSubmit?: (values: LeadFormValues) => void | Promise<void>;
   initialPhone?: string;
 };
 
-export const LeadForm: React.FC<LeadFormProps> = ({
-  onSubmit,
-  initialPhone,
-}) => {
+export const LeadForm: React.FC<LeadFormProps> = ({ initialPhone }) => {
+  const enquiryMutation = useEnquiryMutation();
   const form = useForm<LeadFormValues>({
     resolver: zodResolver(leadSchema),
     defaultValues: {
@@ -44,13 +41,12 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   });
 
   async function handleSubmit(values: LeadFormValues) {
-    if (onSubmit) {
-      await onSubmit(values);
-      form.reset();
-      return;
-    }
-    // fallback: reset the form after submit
-    form.reset();
+    await enquiryMutation.mutateAsync({
+      enquiryFor: values.whoNeeds ?? 'myself',
+      name: values.fullName,
+      phone: values.phone,
+      source: 'marketing-website',
+    });
   }
 
   return (
@@ -140,12 +136,13 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           </div>
         </div>
 
-        <Button
+        <LoadingButton
           className="h-10 w-full rounded-xl bg-gradient-cta"
+          isLoading={form.formState.isSubmitting}
           type="submit"
         >
           Get details on WhatsApp
-        </Button>
+        </LoadingButton>
       </form>
     </Form>
   );

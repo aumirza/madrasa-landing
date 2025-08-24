@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layouts/Footer';
 import { Header } from '@/components/layouts/Header';
+import { Toaster } from '@/components/ui/sonner';
 
 export default function RootLayout({
   children,
@@ -10,6 +11,7 @@ export default function RootLayout({
     <>
       <Header />
       <main className="pt-20">{children}</main>
+      <Toaster />
       <Footer />
     </>
   );
