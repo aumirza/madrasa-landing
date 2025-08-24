@@ -14,7 +14,7 @@ function FooterTop() {
       className="bg-gradient-to-b from-[#0A0414] to-[#4B1F90] px-3 py-5 sm:px-[6.25rem] sm:py-[110px]"
       fluid
     >
-      <div className="flex flex-col gap-10 sm:flex-row sm:gap-17">
+      <Container className="flex flex-col gap-10 sm:flex-row sm:gap-17">
         <div className="flex flex-1 flex-col gap-2 ">
           <div className="flex h-full w-[21.75rem] flex-col justify-between text-white">
             <div className="space-y-4">
@@ -132,7 +132,7 @@ function FooterTop() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </Container>
   );
 }
