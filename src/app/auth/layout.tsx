@@ -1,1 +1,3 @@
-// auth layout will be implemented here
+export default function layout() {
+  return <div>layout</div>;
+}
