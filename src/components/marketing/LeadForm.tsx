@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import type React from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import whatsappIcon from '@/assets/icons/whatsapp.svg';
 import {
@@ -23,6 +24,7 @@ import {
 import { type LeadFormValues, leadSchema } from '@/constants/leadSchema';
 import { useEnquiryMutation } from '@/lib/enquiryApi';
 import { PhoneInput } from '../ui/phone-input';
+import { StatusModal } from './StatusModal';
 
 export type LeadFormProps = {
   initialPhone?: string;
@@ -41,13 +43,35 @@ export const LeadForm: React.FC<LeadFormProps> = ({ initialPhone }) => {
   });
 
   async function handleSubmit(values: LeadFormValues) {
-    await enquiryMutation.mutateAsync({
-      enquiryFor: values.whoNeeds ?? 'myself',
-      name: values.fullName,
-      phone: values.phone,
-      source: 'marketing-website',
-    });
+    try {
+      const res = await enquiryMutation.mutateAsync({
+        enquiryFor: values.whoNeeds ?? 'myself',
+        name: values.fullName,
+        phone: values.phone,
+        source: 'marketing-website',
+      });
+      setModalTitle('Alhamdulillah!');
+      setModalDescription(
+        'Details saved! We’ll contact you soon on WhatsApp or call with your best course & tutor match.'
+      );
+      setModalStatus(res?.status ?? 'success');
+      setModalOpen(true);
+    } catch {
+      setModalTitle('Sorry!');
+      setModalDescription(
+        'Something went wrong please try again in a few minutes.'
+      );
+      setModalStatus('error');
+      setModalOpen(true);
+    }
   }
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState<React.ReactNode>('');
+  const [modalDescription, setModalDescription] = useState<React.ReactNode>('');
+  const [modalStatus, setModalStatus] = useState<'success' | 'error'>(
+    'success'
+  );
 
   return (
     <Form {...form}>
@@ -143,6 +167,13 @@ export const LeadForm: React.FC<LeadFormProps> = ({ initialPhone }) => {
         >
           Get details on WhatsApp
         </LoadingButton>
+        <StatusModal
+          description={modalDescription}
+          onOpenChange={setModalOpen}
+          open={modalOpen}
+          status={modalStatus}
+          title={modalTitle}
+        />
       </form>
     </Form>
   );
