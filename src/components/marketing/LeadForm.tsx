@@ -44,7 +44,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ initialPhone }) => {
 
   async function handleSubmit(values: LeadFormValues) {
     try {
-      const res = await enquiryMutation.mutateAsync({
+      await enquiryMutation.mutateAsync({
         enquiryFor: values.whoNeeds ?? 'myself',
         name: values.fullName,
         phone: values.phone,
@@ -54,7 +54,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ initialPhone }) => {
       setModalDescription(
         'Details saved! We’ll contact you soon on WhatsApp or call with your best course & tutor match.'
       );
-      setModalStatus(res?.status ?? 'success');
+      setModalStatus('success');
       setModalOpen(true);
     } catch {
       setModalTitle('Sorry!');
